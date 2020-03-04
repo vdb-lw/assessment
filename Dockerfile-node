@@ -1,0 +1,12 @@
+FROM node:current
+
+WORKDIR '/app'
+COPY nodefe/. .
+ENV NODE_ENV development
+RUN npm install -g @angular/cli && \
+    npm install && \
+    ng update && \
+    npm update
+EXPOSE 4200
+EXPOSE 9876
+CMD ng serve --host 0.0.0.0

@@ -1,0 +1,40 @@
+<form [formGroup]="form">
+  <div class="form-group">
+    <p>RAM Amount</p>
+    <div class="form-check row" formArrayName="ramValues">
+      <mat-checkbox *ngFor="let value of ramValues.controls; let i = index" class="col-xl-6 col-md-3" [formControlName]="i">{{ramCheckboxes[i]}}</mat-checkbox>
+    </div>
+  </div>
+  <div class="form-group">
+    <p>Storage Size</p>
+      <mat-slider thumbLabel [displayWith]="formatSliderLabel" [formControl]="sliderStorage" tickInterval="1" min="0" [max]=[sliderOptMax]></mat-slider>
+  </div>
+  <div class="form-group">
+    <p>HDD Type</p>
+    <div class="form-check" formArrayName="hddValues">
+      <mat-select [formControl]="hddValues" name="hdd">
+        <mat-option *ngFor="let option of HddOptions" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-select>
+    </div>
+  </div>
+  <div class="form-group">
+    <p>Datacenter</p>
+    <div class="form-check" formArrayName="locationValues">
+      <mat-select [formControl]="locationValues" name="hdd">
+        <mat-option *ngFor="let option of locationOptions" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-6 col-md-6 col-6">
+      <button (click)="submit()" mat-raised-button>Submit</button>
+    </div>
+    <div class="col-xl-6 col-md-6 col-6">
+      <button (click)="resetData()" mat-raised-button>Reset</button>
+    </div>
+  </div>
+</form>

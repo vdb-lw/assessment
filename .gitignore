@@ -1,0 +1,38 @@
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+# compiled output
+nodefe/dist
+nodefe/tmp
+nodefe/out-tsc
+# Only exists if Bazel was run
+nodefe/bazel-out
+
+# dependencies
+nodefe/node_modules
+
+# profiling files
+nodefe/chrome-profiler-events*.json
+nodefe/speed-measure-plugin*.json
+# misc
+nodefe/.sass-cache
+nodefe/connect.lock
+nodefe/coverage
+nodefe/libpeerconnection.log
+nodefe/npm-debug.log
+nodefe/yarn-error.log
+nodefe/testem.log
+nodefe/typings
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###

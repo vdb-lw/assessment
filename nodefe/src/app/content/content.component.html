@@ -1,0 +1,42 @@
+<h2>Products which meet your requirements</h2>
+
+<div *ngIf="this.contentDataSource">
+<table mat-table [dataSource]="this.contentDataSource"  matSort class="data-table" *ngIf="this.contentDataSource.filteredData.length > 1">
+  <ng-container matColumnDef="Model">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Model</th>
+    <td mat-cell *matCellDef="let element"> {{element.Model}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Storage">
+    <th mat-header-cell *matHeaderCellDef>Storage</th>
+    <td mat-cell *matCellDef="let element"> {{element.Hdd.amount}}x{{element.Hdd.size}}{{element.Hdd.unit_measure}} {{element.Hdd.type}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Ram">
+    <th mat-header-cell *matHeaderCellDef>Ram</th>
+    <td mat-cell *matCellDef="let element"> {{element.Ram.amount}}{{element.Ram.unit_measure}} {{element.Ram.type}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Location">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Location</th>
+    <td mat-cell *matCellDef="let element"> {{element.Location}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Price">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+    <td mat-cell *matCellDef="let element"> {{element.Price}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Compare">
+    <th mat-header-cell *matHeaderCellDef> <button (click)="this.comparedItems === true ? resetEvent() : compareEvent($event)" mat-raised-button>{{this.comparedItems === true ? 'Reset' : 'Compare'}}</button> </th>
+    <td mat-cell *matCellDef="let element"><mat-checkbox (change)="OnChangeCheckbox($event, element.Id)" name="{{element.Id}}"></mat-checkbox></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: tableColumns;"></tr>
+</table>
+
+<div *ngIf="this.contentDataSource.filteredData.length === 0">No products found</div>
+
+<hr>
+</div>

@@ -1,0 +1,23 @@
+.top-bar {
+  border-bottom: 1px solid black;
+  background-color: white;
+  margin:3px 0;
+}
+
+span {
+  font-weight: bold;;
+  font-size: 1.3em;
+
+  .blue {
+    color:blue;
+  }
+
+  .orange {
+    color: orange;
+  }
+
+  .grey {
+    color:darkslategrey;
+    padding-left: 1em;
+  }
+}
