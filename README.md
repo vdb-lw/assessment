@@ -48,4 +48,4 @@ Now the Backend Server is available at http://127.0.0.1/ and the Frontend App at
 #### Frontend
 * Go to the project root 
 * Move to the `nodefe` directory
-* run `ng e2e`
+* run `ng e2e --port 3000`
